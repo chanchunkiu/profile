@@ -5,9 +5,24 @@ import csv
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route('/')
 def my_home():
     return render_template('index.html')
+
+@app.route('/Aboutme.html')
+def aboutme():
+    return render_template('AboutMe.html')
+
+@app.route('/portfolio.html')
+def profile():
+    return render_template('portfolio.html')
+
+@app.route('/contactme.html')
+def contact():
+    return render_template('contactme.html')
+
+
+
 
 
 @app.route('/<string:page_name>')
@@ -19,7 +34,7 @@ def submit_form():
     if request.method == 'POST':
         try:
             data = request.form.to_dict()
-            write_to_file(data)
+            write_to_csv(data)
             return redirect('/thankyou.html')
         except:
             return 'failed to save to database'
@@ -41,5 +56,6 @@ def write_to_csv(data):
         email = data["email"]
         message = data['message']
         
-        csv_writer = csv.writer(database2, delimiter=',', quotechar='', quoting=csv.QUOTE_MINIMAL)
+        csv_writer = csv.writer(database2, delimiter=',',
+                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
         csv_writer.writerow([name, email, message])

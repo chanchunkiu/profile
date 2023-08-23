@@ -1,1 +1,211 @@
-body{background-color: blue}
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #d2c6f3;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: blueviolet;
+    z-index: 99;
+}
+
+.nav-content {
+    max-width: 1200px;
+    margin: auto;
+    padding: 1.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+nav .logo a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: beige;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+nav.logo a:hover {
+    cursor: pointer;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: left 0.3s;
+    position: relative;
+    list-style: none;
+}
+
+ul li a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 2px solid transparent;
+    font-weight: 600;
+    color: beige;
+    transition: 0.3s;
+    border-radius: 10px;
+
+}
+
+ul li a:hover {
+    border-color: aliceblue;
+    color: aliceblue;
+}
+
+section {
+    background: #d2c6f3;
+}
+
+.section-container {
+    min-height: 100vh;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: gray;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+
+.name {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+
+.name span {
+    font-weight: 700;
+}
+
+.animated-text {
+    font-size: 35px;
+    font-weight: 700;
+    min-width: 280px;
+    margin-bottom: 0.5rem;
+}
+
+
+
+
+.animated-text span {
+    position: relative;
+}
+
+.animated-text span::before {
+    content: "Developer";
+    color: blueviolet;
+    animation: words 20s infinite;
+}
+
+.animated-text span::after {
+    content: "";
+    position: absolute;
+    width: calc(100%+8px);
+    height: 100%;
+    background-color: #d2c6f3;
+    border-left: 2px solid blueviolet;
+    right: -8px;
+    animation: cursor .8s infinite, typing 20s steps(14) infinite;
+
+}
+
+
+@keyframes cursor {
+    to {
+        border-left: 2px solid #8f78ce;
+    }
+}
+
+@keyframes words {
+
+    0%,
+    20% {
+        content: "Animator";
+    }
+
+    21%,
+    40% {
+        content: "Developer";
+    }
+
+    41%,
+    60% {
+        content: "Animator";
+    }
+
+    61%,
+    80% {
+        content: "Designer";
+    }
+
+    81%,
+    100% {
+        content: "Developer";
+    }
+}
+
+@keyframes typing {
+
+    10%,
+    15%,
+    30%,
+    35%,
+    50%,
+    55%,
+    70%,
+    75%,
+    90%,
+    95% {
+        width: 0;
+    }
+
+    5%,
+    20%,
+    25%,
+    40%,
+    45%,
+    60%,
+    65%,
+    80%,
+    85% {
+        width: calc(100% + 8px);
+    }
+}
+
+.image {
+    display: grid;
+    place-items: center;
+}
+
+.image img {
+    width: min(25rem, 90%);
+    border-radius: 15px; 
+
+
+}

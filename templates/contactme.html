@@ -32,13 +32,22 @@
             </div>
         </nav>
         <div class="container">
-            
             <h2 class="contact-title">Contact Me</h2>
-            <br>
-            <br>
-            <p >Thankyou for reaching out! I have recieved your submission and will get back to you as soon as possible. </p>
-           </div>
-</form>
+            <form action="submit_form" method ="post">
+                <div class="submit-input">
+                    <div class="submit-data"><input type="text" name="name" placeholder="Name" required></div>
+                    <div class="submit-data"><input type="email" name="email" placeholder="Email" required></div>
+                    <div class="submit-message">
+                        <textarea name="message" placeholder="Message"></textarea>
+                    </div>
+                    <div class="submit-message">
+                        <input type="submit" value="Send" />
+                    </div>
+                </div>
+            </form>
+
+
+
     </body>
 
 </html>

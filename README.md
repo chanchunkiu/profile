@@ -1,4 +1,4 @@
-<img width="1434" alt="Screenshot 2023-08-23 at 9 05 31 PM" src="https://github.com/chanchunkiu/profile/assets/107382038/23f4ca63-49e3-4052-8d9f-b8fe17b71c6d">Welcome to my webite
+Welcome to my webite
 
 This project combines the front end and back end to build a dynamic website.
 Html and Css codes to build the interface while using python to power the server and stores form submissions in a database.

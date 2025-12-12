@@ -48,7 +48,7 @@ This is the contact page of my website
 3. python -m venv venv(virtual environment)
 4. source venv/bin/activate
 5. pip install -r requirements.txt
-6. python app.py
+6. python server.py
 7. Open browser http://127.0.0.1:5000
 
 ## Stucture

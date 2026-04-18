@@ -1,15 +1,16 @@
+/* --- Global & Layout --- */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
     background-color: #d2c6f3;
 }
 
+/* --- Navigation Fix --- */
 nav {
     width: 100%;
     position: fixed;
@@ -64,148 +65,102 @@ ul li a:hover {
     border-color: aliceblue;
     color: aliceblue;
 }
-
 section {
     background: #d2c6f3;
 }
 
+
+/* --- The Stretching Section --- */
 .section-container {
     min-height: 100vh;
-    max-width: 1200px;
+    width: 100%;
+    max-width: 1400px;
     margin: auto;
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    padding: 100px 5% 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
 }
 
+/* --- Text Content Styling --- */
 .content {
+    flex: 1; /* Takes up all available space */
     display: flex;
-    justify-content: center;
     flex-direction: column;
 }
 
 .subtitle {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
+    font-size: 1.2rem;
     color: gray;
     font-weight: 700;
-    margin-bottom: .5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
 }
 
 .name {
-    font-size: 2.5rem;
+    /* Fluid Font Size: Grows between 2rem and 3.5rem based on screen width */
+    font-size: clamp(2rem, 5vw, 3.5rem); 
     font-weight: 400;
+    margin: 0.5rem 0;
+    line-height: 1.1;
 }
-
 
 .name span {
     font-weight: 700;
 }
 
 .animated-text {
-    font-size: 35px;
+    font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 700;
-    min-width: 280px;
-    margin-bottom: 0.5rem;
-}
-
-
-
-
-.animated-text span {
-    position: relative;
-}
-
-.animated-text span::before {
-    content: "Developer";
     color: blueviolet;
-    animation: words 20s infinite;
 }
 
-.animated-text span::after {
-    content: "";
-    position: absolute;
-    width: calc(100%+8px);
-    height: 100%;
-    background-color: #d2c6f3;
-    border-left: 2px solid blueviolet;
-    right: -8px;
-    animation: cursor .8s infinite, typing 20s steps(14) infinite;
-
-}
-
-
-@keyframes cursor {
-    to {
-        border-left: 2px solid #8f78ce;
-    }
-}
-
-@keyframes words {
-
-    0%,
-    20% {
-        content: "Animator";
-    }
-
-    21%,
-    40% {
-        content: "Developer";
-    }
-
-    41%,
-    60% {
-        content: "Animator";
-    }
-
-    61%,
-    80% {
-        content: "Designer";
-    }
-
-    81%,
-    100% {
-        content: "Developer";
-    }
-}
-
-@keyframes typing {
-
-    10%,
-    15%,
-    30%,
-    35%,
-    50%,
-    55%,
-    70%,
-    75%,
-    90%,
-    95% {
-        width: 0;
-    }
-
-    5%,
-    20%,
-    25%,
-    40%,
-    45%,
-    60%,
-    65%,
-    80%,
-    85% {
-        width: calc(100% + 8px);
-    }
-}
-
+/* --- The Image Container --- */
 .image {
-    display: grid;
-    place-items: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .image img {
-    width: min(25rem, 90%);
-    border-radius: 15px; 
+    width: 100%;
+    max-width: 400px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
 
+/* --- MOBILE RESPONSIVENESS (The "Magic" Part) --- */
 
+@media (max-width: 850px) {
+    /* 1. Hide the photo completely on mobile */
+    .image {
+        display: none;
+    }
+
+    /* 2. Center the text for a cleaner look when photo is gone */
+    .section-container {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .content {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    /* 3. Manually shrink the name if it still feels too big */
+    .name {
+        font-size: 2.2rem;
+    }
+}
+
+/* --- Extra Small Devices (iPhone SE, etc.) --- */
+@media (max-width: 480px) {
+    .name {
+        font-size: 1.8rem;
+    }
+    .subtitle {
+        font-size: 1rem;
+    }
 }

@@ -1,123 +1,194 @@
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+/* --- Global Reset & Professional Base --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background: #f8f9fa; /* Light grey base, clean for infra docs */
+    color: #333;
+    overflow-x: hidden; /* Prevents horizontal scroll bugs */
+}
 
+/* --- The Main Section --- */
 .section-aboutme {
-    text-align: center;
-    display: grid;
-    place-items: center;
+    width: 100%;
+    min-height: 100vh; /* Stretch to fill the viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0;
 }
 
-.socialmedia{
-  margin:10px 5px 0;
-  place-items: center;
-  display:grid;
+/* --- The 100% Stretch Container --- */
+.aboutme-container {
+    width: 100%;
+    max-width: 100%;    /* No more 1200px limit */
+    padding: 0 5%;      /* 5% "breathing room" on the sides */
+    display: flex;
+    flex-wrap: wrap;    /* The key to auto-scaling */
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
 }
 
-.title {
-    font-size: 40px;
-    font-weight: 700;
-    min-width: 280px;
-    margin-bottom: 0.5rem;
+/* --- The Two Elastic Columns --- */
+.aboutme-visual, .aboutme-content {
+    flex: 1 1 450px;    /* Grow to fill space, shrink to 450px before stacking */
+    max-width: 800px;   /* Prevents text lines from getting too long to read */
 }
 
-.introduce {
-    font-size: 20px;
-    font-weight: 400;
-    min-width: 280px;
+/* --- Terminal Visual (Left Side) --- */
+.terminal-window {
+    background: #1e1e1e;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    font-family: 'Courier New', monospace;
+    width: 100%;
 }
 
-.aboutme_image {
-    display: grid;
-    place-items: center;
-    padding: 4rem 0;
+.terminal-header {
+    background: #2d2d2d;
+    padding: 14px 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
-.aboutme_image img {
-    width: min(25rem, 90%);
-    border-radius: 15px; 
-    max-width: 100%; 
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red    { background: #ff5f57; }
+.dot.yellow { background: #febc2e; }
+.dot.green  { background: #28c840; }
+
+.terminal-body {
+    padding: 30px;
+    color: #d1d1d1;
+    font-size: 15px;
+    line-height: 1.8;
 }
 
-.wrapper .button a{
-  color: black;
-  text-decoration: none;
+.code-keyword { color: #c792ea; font-weight: bold; }
+.code-add     { color: #c3e88d; }
 
+/* --- Bio Content (Right Side) --- */
+.aboutme-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.infra-title {
+    font-size: clamp(2rem, 5vw, 3.5rem); /* Fluid font: grows with screen */
+    font-weight: 800;
+    color: #222;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.bio-text p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #444;
+}
+
+/* --- Modern Skills Chips --- */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.skill-item {
+    background: #6f42c1; /* Professional Purple */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-3px);
+    background: #59359a;
+}
+
+/* --- Social Media Footer --- */
+.socialmedia {
+    width: 100%;
+    margin-top: auto; /* Pushes it to the bottom if content is short */
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .wrapper .button {
-  display: inline-block;
-  height: 60px;
-  width: 60px;
-  float: left;
-  margin: 0 5px;
-  overflow: hidden;
-  background: #d2c6f3;
-  border-radius: 50px;
-  cursor: pointer;
-  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease-out;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    width: 60px;
+    overflow: hidden;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .wrapper .button:hover {
-  width: 200px;
+    width: 190px;
+    background: #fff;
 }
 
 .wrapper .button .icon {
-  display: inline-block;
-  height: 60px;
-  width: 60px;
-  text-align: center;
-  border-radius: 50px;
-  box-sizing: border-box;
-  line-height: 60px;
-  transition: all 0.3s ease-out;
-}
-
-
-.wrapper .button:nth-child(1):hover .icon {
-  background: #E1306C;
-}
-
-.wrapper .button:nth-child(2):hover .icon {
-  background: #333;
-}
-
-.wrapper .button:nth-child(3):hover .icon {
-  background: #ff0000;
-}
-
-.wrapper .button .icon i {
-  font-size: 25px;
-  line-height: 60px;
-  transition: all 0.3s ease-out;
-}
-
-.wrapper .button:hover .icon i {
-  color: #d2c2de;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 }
 
 .wrapper .button span {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 60px;
-  margin-left: 10px;
-  transition: all 0.3s ease-out;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+    color: #333;
 }
 
+/* Icon Colors */
+.wrapper .button:nth-child(1):hover .icon { background: #E1306C; }
+.wrapper .button:nth-child(2):hover .icon { background: #333; }
+.wrapper .button:nth-child(3):hover .icon { background: #ff0000; }
+.wrapper .button:hover .icon i { color: #fff; }
 
-.wrapper .button:nth-child(1) span {
-  color: #E1306C;
-}
-
-.wrapper .button:nth-child(2) span {
-  color: #333;
-}
-
-.wrapper .button:nth-child(3) span {
-  color: #ff0000;
+/* Dark Mode Support (System Level) */
+@media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #eee; }
+    .infra-title { color: #fff; }
+    .bio-text p { color: #bbb; }
+    .wrapper .button { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.1); }
+    .wrapper .button span { color: #fff; }
 }

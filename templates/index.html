@@ -32,7 +32,7 @@
                 <p class="subtitle">HELLO</p>
                 <h1 class="name">I am <span>Chan Chun Kiu</span> </h1>
                 <div class="animated-text">
-                    <span></span>
+                    <span id="typewriter"></span>
                 </div>
                 <p class="descirption">
 
@@ -44,6 +44,43 @@
         </div>
 
     </section>
+    <script>
+  const words = ["Animator", "Developer", "Cloud Engineer"];
+  const el = document.getElementById("typewriter");
+  const TYPE_SPEED = 80;
+  const DELETE_SPEED = 40;
+  const HOLD_MS = 1800;
+  let wordIndex = 0;
+
+  function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+  async function typeWord(word) {
+    for (let i = 1; i <= word.length; i++) {
+      el.textContent = word.slice(0, i);
+      await sleep(TYPE_SPEED);
+    }
+  }
+
+  async function deleteWord(word) {
+    for (let i = word.length - 1; i >= 0; i--) {
+      el.textContent = word.slice(0, i);
+      await sleep(DELETE_SPEED);
+    }
+  }
+
+  async function loop() {
+    while (true) {
+      const word = words[wordIndex % words.length];
+      await typeWord(word);
+      await sleep(HOLD_MS);
+      await deleteWord(word);
+      await sleep(300);
+      wordIndex++;
+    }
+  }
+
+  loop();
+</script>
 </body>
 
 </html>

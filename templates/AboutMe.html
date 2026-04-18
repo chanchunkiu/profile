@@ -32,26 +32,45 @@
                 </ul>
             </div>
         </nav>
-
-        <section class="section-aboutme">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <p class="title">About Me</p>
-            <div class="aboutme_image">
-                <img src="./static/assets/mainpic.jpg" alt="img" width="350px">
+<section class="section-aboutme">
+    <div class="aboutme-container">
+        <div class="aboutme-visual">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-body">
+                    <code>
+                        <span class="code-keyword">resource</span> "cloud_infra" "cloud_security" {<br>
+                        &nbsp;&nbsp;focus = "Cloud Engineer<br>
+                        &nbsp;&nbsp;status = "Learning & Building"<br>
+                        &nbsp;&nbsp;location = "Hong Kong"<br>
+                        }<br><br>
+                        $ terraform plan<br>
+                        <span class="code-add">+ infrastructure ready to scale</span>
+                    </code>
+                </div>
             </div>
-            <p class="introduce"> " Hello there! I'm Chan Chun Kiu from Hong Kong, and I pursued my education at the University of Aizu. Recently, I am engaged in expanding my proficiency in Python programming, web
-                development, and Blender. I am actively exploring roles that harmonize with my skill set and ambitions. Proficient in English, Japanese, Cantonese, and Chinese, I'm equipped to connect with diverse communities. 
-                During my moments away from coding and designing, I take pleasure in the world of reading and gaming, where stories come to life. My goal is to uncover opportunities that resonate with my skills and ambitions, 
-                enabling me to create a purposeful impact. Don't hesitate to reach out – I'm excited to connect! "
+        </div>
 
-            </p>
-        </section>
+        <div class="aboutme-content">
+            <h1 class="infra-title">Cloud & Infrastructure</h1>
+            <p class="subtitle">Architecting systems, not just code.</p>
+            
+            <div class="bio-text">
+                <p>Computer Science graduate specializing in Cloud Infrastructure and Microsoft Azure. I focus on building secure, high-availability environments and implementing automated cloud solutions..</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fas fa-cloud"></i> Azure / Cloud</div>
+                <div class="skill-item"><i class="fas fa-code-branch"></i> Terraform / IaC</div>
+                <div class="skill-item"><i class="fas fa-language"></i> EN / JP / CN</div>
+            </div>
+        </div>
+    </div>
+</section>
         <section class = "socialmedia">
 
             <div class="wrapper">

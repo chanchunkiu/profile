@@ -1,61 +1,52 @@
 import os
-from flask import Flask,render_template,send_from_directory,request,redirect
-import csv
+from flask import Flask, render_template, request, redirect
+import resend
+from dotenv import load_dotenv
 
+load_dotenv()
 
 app = Flask(__name__)
+
+#.env file
+resend.api_key = os.getenv('RESEND_API_KEY') 
 
 @app.route('/')
 def my_home():
     return render_template('index.html')
-
-@app.route('/Aboutme.html')
-def aboutme():
-    return render_template('AboutMe.html')
-
-@app.route('/portfolio.html')
-def profile():
-    return render_template('portfolio.html')
-
-@app.route('/contactme.html')
-def contact():
-    return render_template('contactme.html')
-
-
-
-
-
+#routing all pages
 @app.route('/<string:page_name>')
 def html_page(page_name):
-    return render_template(page_name)
+    try:
+        return render_template(page_name)
+    except Exception:
+        return render_template('404.html'), 404
 
-@app.route('/submit_form', methods=['POST','GET'])
+#send email through request
+@app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
     if request.method == 'POST':
         try:
             data = request.form.to_dict()
-            write_to_csv(data)
+            user_name = data.get('name', 'Anonymous')
+            user_email = data.get('email', 'No Email Provided')
+            user_msg = data.get('message', 'No Message Content')
+
+
+            params = {
+                "from": "onboarding@resend.dev",
+                "to": "chanchunkiu2001@gmail.com", 
+                "subject": f"New Portfolio Message from {user_name}",
+                "text": f"Name: {user_name}\nEmail: {user_email}\nMessage: {user_msg}"
+            }
+            
+            resend.Emails.send(params)
+
             return redirect('/thankyou.html')
-        except:
-            return 'failed to save to database'
-        else:
-            return 'error occur, please try again'
+        except Exception as e:
+            print(f"Error: {e}") 
+            return 'Something went wrong. Please try again later.'
 
+    return 'Method not allowed'
 
-
-def write_to_file(data):
-    with open('database.txt',mode='a') as database:
-        name = data['name']
-        email = data["email"]
-        message= data['message']
-        file = database.write(f'\n{name},{email},{message}')
-
-def write_to_csv(data):
-    with open('database.csv', newline='', mode='a') as database2:
-        name = data['name']
-        email = data["email"]
-        message = data['message']
-        
-        csv_writer = csv.writer(database2, delimiter=',',
-                            quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        csv_writer.writerow([name, email, message])
+if __name__ == "__main__":
+    app.run(debug=True, port=5000)

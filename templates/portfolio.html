@@ -3,40 +3,104 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width ,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="shortcut icon" href="{{ url_for('static', filename='pokemon.ico') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crosssporigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&dilay=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./static/style.css">
     <style>
-        #profilepdf {
+        .portfolio-wrapper {
+            max-width: 900px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-header h2 {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: 13px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #888;
+            margin: 0;
+        }
+
+        .download-btn {
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #888;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            padding: 6px 14px;
+            border-radius: 2px;
+            transition: all 0.2s ease;
+        }
+
+        .download-btn:hover {
+            color: #222;
+            border-color: #222;
+        }
+
+        .pdf-frame-wrapper {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+        }
+
+        .pdf-frame-wrapper iframe {
+            display: block;
             width: 100%;
-            height: 975px;
+            height: 85vh;
+            border: none;
+        }
+
+        .portfolio-footer {
+            margin-top: 12px;
+            font-family: 'DM Mono', monospace;
+            font-size: 11px;
+            color: #bbb;
+            text-align: right;
         }
     </style>
-
 </head>
 
 <body>
+    <nav>
+        <div class="nav-content">
+            <label class="logo"><a href="#">Site</a></label>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/AboutMe.html">AboutMe</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/contactme.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <body>
-        <nav>
-            <div class="nav-content">
-                <label class="logo"><a href="#"> Site</a></label>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="AboutMe.html">AboutMe</a></li>
-                    <li><a href="portfolio.html">Portfolio</a></li>
-                    <li><a href="contactme.html">Contact</a></li>
+    <div class="portfolio-wrapper">
+        <div class="portfolio-header">
+            <h2>Resume</h2>
+            <a class="download-btn" href="{{ url_for('static', filename='assets/profile.pdf') }}" download>↓ Download PDF</a>
+        </div>
 
-                </ul>
-            </div>
-        </nav>
+        <div class="pdf-frame-wrapper">
+            <iframe src="{{ url_for('static', filename='assets/profile.pdf') }}" title="Resume"></iframe>
+        </div>
 
-        <iframe id="profilepdf" src='./static/assets/profile.pdf' frameborder="0"></iframe>
-    </body>
+        <p class="portfolio-footer">Last updated · 2026</p>
+    </div>
+</body>
 
-
-</html>
+</html> 

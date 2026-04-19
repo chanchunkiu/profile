@@ -56,11 +56,8 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 ### Home page
 <img width="1282" height="1069" alt="image" src="https://github.com/user-attachments/assets/24d191d5-29c2-4508-a6d0-1ee135fe21e7" />
 
-###AboutMe
+### AboutMe
 <img width="1270" height="834" alt="image" src="https://github.com/user-attachments/assets/589fd4d9-f9be-4ea1-bca8-93addd3509da" />
-
-
-
 
 ### There is a navigation bar on top to browse through the site, and animated text to make the website more appealing
 

@@ -4,7 +4,7 @@ LINK 🌐: www.chanchunkiu.com
 
 ---
 
-## What this is
+## Introduction
 I built this site from scratch as both an online profile and a project I could actually learn from.
 What began as a basic Flask app hosted on PythonAnywhere turned into a self-hosting experiment on GCP —
 buying a domain, setting up DNS, configuring a CDN, and locking things down with a WAF.

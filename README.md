@@ -59,9 +59,7 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 ### AboutMe
 <img width="1270" height="834" alt="image" src="https://github.com/user-attachments/assets/589fd4d9-f9be-4ea1-bca8-93addd3509da" />
 
-### There is a navigation bar on top to browse through the site, and animated text to make the website more appealing
-
-This is the contact page of my website
+### Contact page
 <img width="1440" alt="Screenshot 2023-08-23 at 9 07 15 PM" src="https://github.com/chanchunkiu/profile/assets/107382038/b1acab46-a0da-4a69-9fc8-90b4066a606d">
 
 ### Forms are sent to my personal email

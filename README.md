@@ -29,7 +29,7 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 - **Environment:** Debian Linux
 
 ### What I set up
-- **WAF rules** — custom Cloudflare rules to challenge unverified ASNs, block sensitive path access (`.env`, `/admin`), and handle bot traffic
+- **WAF rules** — custom Cloudflare rules to challenge known bot ASNs (e.g. ASN 16509 — AWS), block sensitive path access (`.env`, `/admin`), and handle bot traffic
 - **Bot Fight Mode** — enabled at the Cloudflare edge
 - **Zero-config SSL** — Caddy handles cert provisioning and forces HTTPS automatically
 - **IP shielding** — Cloudflare proxy hides the origin GCP external IP from the public

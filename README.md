@@ -69,19 +69,7 @@ This is the contact page of my website
 ### Forms are sent to my personal email
 <img width="644" height="215" alt="image" src="https://github.com/user-attachments/assets/23192d42-836d-4657-9fcc-d38336742f3a" />
 
-
-
-
-
-
-## How to run locally
-1. clone https://github.com/chanchunkiu/profile
-2. cd profile
-3. python -m venv venv(virtual environment)
-4. source venv/bin/activate
-5. pip install -r requirements.txt
-6. python server.py
-7. Open browser http://127.0.0.1:5000
+---
 
 ## Stucture
 /static           → CSS, images, assets

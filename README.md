@@ -12,7 +12,7 @@ It's not just a portfolio. It's something I keep tinkering with.
 
 ---
 
-###The Infrastructure & Development
+### The Infrastructure & Development
 Originally hosted on shared platforms, I have since migrated this application to a custom-built cloud stack. This allows me to manage the underlying Linux environment and implement enterprise-grade security features.
 
 ---

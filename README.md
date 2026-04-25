@@ -28,18 +28,9 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 - **Backend:** Python Flask
 - **Environment:** Debian Linux
 
-(HTTPS)              (GCP VPC Firewall)
-[User Browser] -------> [Cloudflare] ----------------> [GCP Compute VM]
-                        (DNS + WAF)       (TCP 443)    | (Debian Linux)
-                                                       |
-                                                       v
-                                                 [ Caddy Server ]
-                                                 (Reverse Proxy)
-                                                       |
-                                                       | (Localhost)
-                                                       v
-[Static/Templates] <-------------------------- [ Flask App ]
-                   (Serves Files)
+<pre>
+[User] -> [Cloudflare] -> [GCP VM] -> [Caddy] -> [Flask]
+</pre>
 
 ### What I set up
 - **WAF rules** — custom Cloudflare rules to challenge known bot ASNs (e.g. ASN 16509 — AWS), block sensitive path access (`.env`, `/admin`), and handle bot traffic
@@ -47,17 +38,6 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 - **Zero-config SSL** — Caddy handles cert provisioning and forces HTTPS automatically
 - **IP shielding** — Cloudflare proxy hides the origin GCP external IP from the public
 - **VPC firewall** — GCP ingress/egress rules locked down to only necessary ports (80, 443, 22)
-
-User (Browser)
-     ↓
-Cloudflare (DNS + WAF)
-     ↓
-Domain (your site)
-     ↓
-GCP VM (Flask App)
-     ↓
-Templates + Static Files
-
 
 ---
 

@@ -59,13 +59,18 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 ### This is the home page of my website
 
 ### Home page
-<img width="1282" height="1069" alt="image" src="https://github.com/user-attachments/assets/24d191d5-29c2-4508-a6d0-1ee135fe21e7" />
+<img width="1276" height="1083" alt="image" src="https://github.com/user-attachments/assets/e3c0415f-1a5f-4cf6-9340-37819a0b7036" />
+
 
 ### AboutMe
-<img width="1270" height="834" alt="image" src="https://github.com/user-attachments/assets/589fd4d9-f9be-4ea1-bca8-93addd3509da" />
+<img width="1671" height="1233" alt="image" src="https://github.com/user-attachments/assets/72dde009-8c29-4775-8d2c-16afab283804" />
+
+##Portfolio
+This page consists of my resume with a managed challenge to avoid bots 
 
 ### Contact page
-<img width="1440" alt="Screenshot 2023-08-23 at 9 07 15 PM" src="https://github.com/chanchunkiu/profile/assets/107382038/b1acab46-a0da-4a69-9fc8-90b4066a606d">
+<img width="1367" height="751" alt="image" src="https://github.com/user-attachments/assets/4ade42a7-d61a-4f05-afe2-66045954e219" />
+
 
 ### Forms are sent to my personal email
 <img width="644" height="215" alt="image" src="https://github.com/user-attachments/assets/23192d42-836d-4657-9fcc-d38336742f3a" />

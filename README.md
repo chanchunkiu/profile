@@ -24,26 +24,28 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 ### Architecture
 - **Cloud:** GCP Compute Engine — e2-micro (us-central1-f, free tier)
 - **Security & CDN:** Cloudflare (Edge Proxy + WAF)
-- **Reverse Proxy:** Caddy — automated TLS/SSL via Let's Encrypt
+- **SSL/TLS: Cloudflare Origin CA (15-year RSA encryption
+- **Reverse Proxy: Caddy — hardened production gateway
 - **Backend:** Python Flask
 - **Environment:** Debian Linux
 
 <pre>
-[User] ──▶ [Cloudflare] ──▶ [GCP VM] ──▶ [Flask]
+[User] ──▶ [Cloudflare] ──▶ [GCP VM] ──▶ [SSL/TLS]  ──▶ [Flask APP]
 </pre>
 
-### What I set up
-- **WAF rules** — custom Cloudflare rules to challenge known bot ASNs (e.g. ASN 16509 — AWS), block sensitive path access (`.env`, `/admin`), and handle bot traffic
+### Security Implementation
+- **WAF hardening** — custom Cloudflare rules to challenge known bot ASNs (e.g. ASN 16509 — AWS), block sensitive path access (`.env`, `/admin`), and handle bot traffic
+- **SSL "Full (Strict)" Mode: By using Cloudflare Origin Certificates, this ensures the connection between Cloudflare and the GCP VM is encrypyed and authenticated, preventing attacks in the middle
 - **Bot Fight Mode** — enabled at the Cloudflare edge
 - **Zero-config SSL** — Caddy handles cert provisioning and forces HTTPS automatically
 - **IP shielding** — Cloudflare proxy hides the origin GCP external IP from the public
-- **VPC firewall** — GCP ingress/egress rules locked down to only necessary ports (80, 443, 22)
+- **VPC firewall** — GCP VPC rules locked down to only necessary ports (80, 443, 22)
 
 ---
 
 ##Tech used
 ### Backend
-- Python / Flask — core logic and routing
+- Python/Flask — core logic and routing
 - Requests + SMTP — contact form now sends emails directly instead of storing to a database
 - Caddy — web server and reverse proxy
 

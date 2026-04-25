@@ -28,11 +28,11 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 - **Backend:** Python Flask
 - **Environment:** Debian Linux
 
-Cloudflare (DNS + WAF)
-↓
-Reverse Proxy / Entry Point
-↓
-Flask Application
+```mermaid
+flowchart TD
+    A[Cloudflare (DNS + WAF)] --> B[Reverse Proxy / Entry Point]
+    B --> C[Flask Application]
+```
 
 ### What I set up
 - **WAF rules** — custom Cloudflare rules to challenge known bot ASNs (e.g. ASN 16509 — AWS), block sensitive path access (`.env`, `/admin`), and handle bot traffic

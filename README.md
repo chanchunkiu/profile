@@ -29,7 +29,7 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 - **Environment:** Debian Linux
 
 <pre>
-[User] -> [Cloudflare] -> [GCP VM] -> [Caddy] -> [Flask]
+[User] ──▶ [Cloudflare] ──▶ [GCP VM] ──▶ [Flask]
 </pre>
 
 ### What I set up

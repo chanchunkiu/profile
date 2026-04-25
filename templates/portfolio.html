@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="./static/style.css">
     <style>
         .portfolio-wrapper {
-            max-width: 900px;
-            margin: 60px auto;
+            max-width: 1000px;
+            margin: 120px auto 60px; /* push down from fixed nav */
             padding: 0 24px;
         }
 
@@ -26,37 +26,22 @@
 
         .portfolio-header h2 {
             font-family: 'DM Sans', sans-serif;
-            font-weight: 300;
+            font-weight: 400;
             font-size: 13px;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: #888;
-            margin: 0;
+            color: var(--text-dim);
         }
 
-        .download-btn {
-            font-family: 'DM Mono', monospace;
-            font-size: 11px;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            color: #888;
-            text-decoration: none;
-            border: 1px solid #ddd;
-            padding: 6px 14px;
-            border-radius: 2px;
-            transition: all 0.2s ease;
-        }
-
-        .download-btn:hover {
-            color: #222;
-            border-color: #222;
-        }
 
         .pdf-frame-wrapper {
-            border: 1px solid #e0e0e0;
-            border-radius: 4px;
+            border: 1px solid rgba(122, 162, 247, 0.2);
+            border-radius: 8px;
             overflow: hidden;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+            background: var(--bg-soft);
+            box-shadow: 
+            0 10px 40px rgba(0, 0, 0, 0.5),
+            0 0 20px rgba(122, 162, 247, 0.1);
         }
 
         .pdf-frame-wrapper iframe {
@@ -79,7 +64,7 @@
 <body>
     <nav>
         <div class="nav-content">
-            <label class="logo"><a href="#">Site</a></label>
+            <label class="logo">Site</label>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="/AboutMe.html">AboutMe</a></li>
@@ -92,14 +77,13 @@
     <div class="portfolio-wrapper">
         <div class="portfolio-header">
             <h2>Resume</h2>
-            <a class="download-btn" href="{{ url_for('static', filename='assets/profile.pdf') }}" download>↓ Download PDF</a>
-        </div>
 
+        </div>
         <div class="pdf-frame-wrapper">
-            <iframe src="{{ url_for('static', filename='assets/profile.pdf') }}" title="Resume"></iframe>
-        </div>
-
-        <p class="portfolio-footer">Last updated · 2026</p>
+            <iframe 
+  src="{{ url_for('static', filename='assets/profile.pdf') }}#toolbar=0"
+  style="width:100%; height:85vh; border:none;">
+</iframe>
     </div>
 </body>
 

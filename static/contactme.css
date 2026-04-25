@@ -1,9 +1,9 @@
 form label {
     display: inline-block;
-    /* Change display to inline-block */
     text-align: left;
     margin-bottom: 0.5em;
     width: 45%;
+    color: var(--text-dim);
 }
 
 form input[type="text"],
@@ -11,23 +11,18 @@ form input[type="email"],
 form input[type="password"],
 form select,
 form textarea {
-    position: relative;
-    display: block;
-    border: 0;
-    outline: 0;
-    background: lightgray;
-    background: whitesmoke;
-    width: 100%;
-    border-radius: 0.35em;
-    padding: 1em 1.25em 1em 1.25em;
-    box-shadow: inset 0 0.1em 0.1em 0 rgba(0, 0, 0, 0.05);
-    border: solid 1px rgba(0, 0, 0, 0.15);
-    transition: all 0.35s ease-in-out;
-    width: 50%;
-    /* Set a width for the input fields */
     display: inline-block;
-    /* Change display to inline-block */
+    width: 50%;
     margin-left: 2%;
+
+    background: var(--bg-soft);
+    color: var(--text-main);
+    border-radius: 0.35em;
+    padding: 1em 1.25em;
+    border: 1px solid rgba(122, 162, 247, 0.2);
+
+    outline: none;
+    transition: all 0.3s ease;
 }
 
 form input[type="text"]:focus,
@@ -35,8 +30,9 @@ form input[type="email"]:focus,
 form input[type="password"]:focus,
 form select:focus,
 form textarea:focus {
-    box-shadow: 0 0 2px 1px #8ebebc;
-    background: #fff;
+    border-color: var(--accent);
+    box-shadow: 0 0 8px rgba(122, 162, 247, 0.5);
+    background: var(--bg-soft);
 }
 
 form input[type="text"],
@@ -52,21 +48,17 @@ form textarea {
 
 
 
-input[type="button"],
+
 input[type="submit"],
-input[type="reset"],
 button,
 .button {
-    position: relative;
-    display: inline-block;
     border-radius: 0.35em;
-    color: #fff !important;
-    text-decoration: none;
-    padding: 1em 3em 1em 3em;
-    background-color: blueviolet;
-    border: 0;
+    color: #fff;
+    padding: 1em 3em;
+    background: var(--accent);
+    border: none;
     cursor: pointer;
-    transition: background-color 0.35s ease-in-out;
+    transition: all 0.3s ease;
     margin-top: 25px;
 }
 
@@ -75,7 +67,8 @@ input[type="submit"]:hover,
 input[type="reset"]:hover,
 button:hover,
 .button:hover {
-    background-color: rgb(160, 115, 202);
+    background: #5f89e6; /* slightly darker blue */
+    box-shadow: 0 0 12px rgba(122, 162, 247, 0.6);
 }
 
 input[type="button"]:active,
@@ -83,7 +76,10 @@ input[type="submit"]:active,
 input[type="reset"]:active,
 button:active,
 .button:active {
-    background-color: blueviolet;
+    transform: scale(0.98);
+}
+::placeholder {
+    color: var(--text-dim);
 }
 
 .container {

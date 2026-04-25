@@ -6,11 +6,12 @@
     font-family: 'Roboto', sans-serif;
 }
 
+
 body {
-    background: #f8f9fa; /* Light grey base, clean for infra docs */
-    color: #333;
-    overflow-x: hidden; /* Prevents horizontal scroll bugs */
+    overflow-x: hidden;
+    color: var(--text-main);
 }
+
 
 /* --- The Main Section --- */
 .section-aboutme {
@@ -42,21 +43,24 @@ body {
 
 /* --- Terminal Visual (Left Side) --- */
 .terminal-window {
-    background: #1e1e1e;
+    background: var(--bg-soft);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
     font-family: 'Courier New', monospace;
     width: 100%;
+    border: 1px solid rgba(122, 162, 247, 0.15);
 }
 
 .terminal-header {
-    background: #2d2d2d;
+    background: rgba(0, 0, 0, 0.3);
     padding: 14px 20px;
     display: flex;
     gap: 10px;
     align-items: center;
 }
+
+
 
 .dot { width: 12px; height: 12px; border-radius: 50%; }
 .dot.red    { background: #ff5f57; }
@@ -81,14 +85,14 @@ body {
 }
 
 .infra-title {
-    font-size: clamp(2rem, 5vw, 3.5rem); /* Fluid font: grows with screen */
+    font-size: clamp(2rem, 5vw, 3.5rem);
     font-weight: 800;
-    color: #222;
+    color: var(--text-main);
 }
 
 .subtitle {
     font-size: 1.2rem;
-    color: #6c757d;
+    color: var(--text-dim);
     font-weight: 500;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -97,7 +101,7 @@ body {
 .bio-text p {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: #444;
+    color: var(--text-main);
 }
 
 /* --- Modern Skills Chips --- */
@@ -109,8 +113,8 @@ body {
 }
 
 .skill-item {
-    background: #6f42c1; /* Professional Purple */
-    color: #fff;
+    background: rgba(122, 162, 247, 0.15);
+    color: var(--accent);
     padding: 10px 20px;
     border-radius: 50px;
     font-size: 14px;
@@ -118,12 +122,14 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
-    transition: transform 0.2s ease;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(122, 162, 247, 0.3);
 }
 
 .skill-item:hover {
     transform: translateY(-3px);
-    background: #59359a;
+    background: rgba(122, 162, 247, 0.25);
+    box-shadow: 0 0 10px rgba(122, 162, 247, 0.4);
 }
 
 /* --- Social Media Footer --- */
@@ -152,13 +158,19 @@ body {
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
-    background: rgba(0, 0, 0, 0.05);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wrapper .button .icon i {
+      color: var(--accent);
 }
 
 .wrapper .button:hover {
     width: 190px;
-    background: #fff;
+    background: var(--bg-soft);
+}
+.wrapper .button:hover span {
+    color: var(--text-main);
 }
 
 .wrapper .button .icon {
@@ -184,11 +196,3 @@ body {
 .wrapper .button:nth-child(3):hover .icon { background: #ff0000; }
 .wrapper .button:hover .icon i { color: #fff; }
 
-/* Dark Mode Support (System Level) */
-@media (prefers-color-scheme: dark) {
-    body { background: #121212; color: #eee; }
-    .infra-title { color: #fff; }
-    .bio-text p { color: #bbb; }
-    .wrapper .button { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.1); }
-    .wrapper .button span { color: #fff; }
-}

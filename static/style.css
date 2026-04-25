@@ -1,4 +1,14 @@
 /* --- Global & Layout --- */
+:root {
+    --bg: #1a1b26;
+    --bg-soft: #24283b;
+    --text-main: #c0caf5;
+    --text-dim: #9aa5ce;
+    --accent: #7aa2f7;     /* neon blue */
+    --accent-2: #f7768e;   /* neon pink */
+    --accent-3: #7dcfff;   /* cyan glow */
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -7,7 +17,11 @@
 }
 
 body {
-    background-color: #d2c6f3;
+    background-color: var(--bg);
+    color: var(--text-main);
+}
+section {
+    background: var(--bg); 
 }
 
 /* --- Navigation Fix --- */
@@ -16,7 +30,9 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: blueviolet;
+    background: rgba(36, 40, 59, 0.6); /* lighter than bg */
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(122, 162, 247, 0.2);
     z-index: 99;
 }
 
@@ -32,7 +48,7 @@ nav {
 nav .logo a {
     font-size: 1.5rem;
     font-weight: 600;
-    color: beige;
+    color: var(--accent);
     transition: 0.3s;
     text-decoration: none;
 }
@@ -55,18 +71,15 @@ ul li a {
     padding: 0.5rem 1rem;
     border: 2px solid transparent;
     font-weight: 600;
-    color: beige;
+    color: var(--text-main);
     transition: 0.3s;
     border-radius: 10px;
 
 }
 
 ul li a:hover {
-    border-color: aliceblue;
-    color: aliceblue;
-}
-section {
-    background: #d2c6f3;
+    color: var(--accent);
+    border-color: var(--accent);
 }
 
 
@@ -92,7 +105,7 @@ section {
 
 .subtitle {
     font-size: 1.2rem;
-    color: gray;
+    color: var(--text-dim);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -104,16 +117,19 @@ section {
     font-weight: 400;
     margin: 0.5rem 0;
     line-height: 1.1;
+    color: var(--text-main);
 }
 
 .name span {
     font-weight: 700;
+        color: var(--accent);
+    text-shadow: 0 0 10px rgba(122, 162, 247, 0.6);
 }
 
 .animated-text {
     font-size: clamp(1.2rem, 3vw, 2rem);
     font-weight: 700;
-    color: blueviolet;
+    color: var(--accent);
 }
 
 /* --- The Image Container --- */
@@ -126,8 +142,13 @@ section {
 .image img {
     width: 100%;
     max-width: 400px;
-    border-radius: 15px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    filter: brightness(0.6) contrast(0.9) saturate(0.8);
+    opacity: 0.8;
+    transition: all 0.4s ease;
+}
+.image img:hover {
+    filter: brightness(0.85) contrast(1) saturate(1);
+    opacity: 1;
 }
 
 /* --- MOBILE RESPONSIVENESS (The "Magic" Part) --- */

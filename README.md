@@ -35,6 +35,16 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 - **IP shielding** — Cloudflare proxy hides the origin GCP external IP from the public
 - **VPC firewall** — GCP ingress/egress rules locked down to only necessary ports (80, 443, 22)
 
+User (Browser)
+     ↓
+Cloudflare (DNS + WAF)
+     ↓
+Domain (your site)
+     ↓
+GCP VM (Flask App)
+     ↓
+Templates + Static Files
+
 
 ---
 

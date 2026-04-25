@@ -35,7 +35,7 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 
 ### Security Implementation
 - **WAF hardening** — custom Cloudflare rules to challenge known bot ASNs (e.g. ASN 16509 — AWS), block sensitive path access (`.env`, `/admin`), and handle bot traffic
-- **SSL "Full (Strict)" Mode: By using Cloudflare Origin Certificates, this ensures the connection between Cloudflare and the GCP VM is encrypyed and authenticated, preventing attacks in the middle
+- **SSL "Full (Strict)" Mode: By using Cloudflare Origin Certificates, this ensures the connection between Cloudflare and the GCP VM is encrypted and authenticated, preventing attacks in the middle
 - **Bot Fight Mode** — enabled at the Cloudflare edge
 - **Zero-config SSL** — Caddy handles cert provisioning and forces HTTPS automatically
 - **IP shielding** — Cloudflare proxy hides the origin GCP external IP from the public
@@ -43,7 +43,7 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 
 ---
 
-##Tech used
+## Tech used
 ### Backend
 - Python/Flask — core logic and routing
 - Requests + SMTP — contact form now sends emails directly instead of storing to a database
@@ -65,7 +65,8 @@ I migrated from PythonAnywhere to a custom cloud stack to get real hands-on cont
 ### AboutMe
 <img width="1671" height="1233" alt="image" src="https://github.com/user-attachments/assets/72dde009-8c29-4775-8d2c-16afab283804" />
 
-##Portfolio
+## Portfolio
+
 This page consists of my resume with a managed challenge to avoid bots 
 
 ### Contact page
